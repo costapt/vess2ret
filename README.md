@@ -2,7 +2,7 @@
 
 [Arxiv](linktoarxiv.sth)
 
-We use an image-to-image translation technique based on the idea of adversarial learning to synthesize eye fundus images directly from data. We pair true eye fundus images with their respective vessel trees, by means of a vessel segmentation technique. These pairs are then used to learn a mapping from a binary vessel tree to a new retinal image. 
+We use an image-to-image translation technique based on the idea of adversarial learning to synthesize eye fundus images directly from data. We pair true eye fundus images with their respective vessel trees, by means of a vessel segmentation technique. These pairs are then used to learn a mapping from a binary vessel tree to a new retinal image.
 
 <img src="images/image_collage_extended.jpg" width="1200px"/>
 
@@ -10,14 +10,14 @@ We use an image-to-image translation technique based on the idea of adversarial 
 ## How it works
 - Get pairs of binary retinal vessel trees and corresponding retinal images
    The user can provide their own vessel annotations.
-   In our case , because a large enough manually annotated database was not available we applied a DNN vessel segmentation method on the [Messidor database](http://www.adcis.net/en/Download-Third-Party/Messidor.html). For details please refer to [arxiv]. 
+   In our case , because a large enough manually annotated database was not available we applied a DNN vessel segmentation method on the [Messidor database](http://www.adcis.net/en/Download-Third-Party/Messidor.html). For details please refer to [arxiv].
 
-- Train the image generator on the set of image pairs. 
+- Train the image generator on the set of image pairs.
    The model was based in [pix2pix](https://github.com/phillipi/pix2pix). We use a Generative Adversarial Network and combine the adversarial loss with a global L1 loss. Our images have 512x512 pixel resolution. The implementation was developed in Python using Keras.
 
 
-- Test the model 
-   The model is now able to synthesize a new retinal image from any given vessel tree. 
+- Test the model
+   The model is now able to synthesize a new retinal image from any given vessel tree.
 
 <p align="center">
  <img src="images/gen_method.png" width="600px"/>
@@ -58,18 +58,18 @@ The model can be used with any given vessel tree of the according size. You can 
 ### Train the model
 
    To train the model run:
-   
+
    ```bash
-   python train.py [--help] 
+   python train.py [--help]
    ```
    By default the model will be saved to a folder named 'log'.
-   
-### Test the model 
-	
+
+### Test the model
+
    To test the model run:
-   
+
    ```bash
-   python test.py [--help] 
+   python test.py [--help]
    ```
    If you are running the test using pre-trained weights downloaded from our [repository](link_to_weights.sth) make sure they are saved in the log folder.
 
@@ -82,6 +82,8 @@ If you use this code for your research, please cite our paper <a href="">Towards
   title={Towards Adversarial Retinal Image Synthesis},
   author={ Costa, P., Galdran, A., Meyer, M.I., Abràmoff, M.D., Niemejer, M., Mendonca, A.M., Campilho, A. },
   journal={arxiv},
-  year={2017}
+  year={2017},
+  doi={10.5281/zenodo.265508}
 }
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.265508.svg)](https://doi.org/10.5281/zenodo.265508)
