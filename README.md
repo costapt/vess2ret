@@ -85,5 +85,6 @@ If you use this code for your research, please cite our paper <a href="">Towards
   year={2017},
   doi={10.5281/zenodo.265508}
 }
+```
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.265508.svg)](https://doi.org/10.5281/zenodo.265508)
