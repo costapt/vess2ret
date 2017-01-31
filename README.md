@@ -25,7 +25,7 @@ We use an image-to-image translation technique based on the idea of adversarial 
 
 ## Setup
 
-## Prerequesits
+## Prerequisites
 - Keras (Theano or Tensorflow backend)
 
 ### Set up directories
