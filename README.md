@@ -53,7 +53,7 @@ Folders {A,B} contain corresponding pairs of images. Make sure these folders hav
 
 ## Model
 
-The model can be used with any given vessel tree of the according size. You can download the pre-trained weights available [here](link_to_weights.sth) and load them at test time. If you choose to do this skip the training step.
+The model can be used with any given vessel tree of the according size. You can download the pre-trained weights available [here](https://drive.google.com/drive/folders/0B_82R0TWezB9VExYbmt2ZUJSUmc?usp=sharing) and load them at test time. If you choose to do this skip the training step.
 
 ### Train the model
 
@@ -71,7 +71,7 @@ The model can be used with any given vessel tree of the according size. You can 
    ```bash
    python test.py [--help]
    ```
-   If you are running the test using pre-trained weights downloaded from our [repository](link_to_weights.sth) make sure they are saved in the log folder.
+   If you are running the test using pre-trained weights downloaded from [here](https://drive.google.com/drive/folders/0B_82R0TWezB9VExYbmt2ZUJSUmc?usp=sharing) make sure both the weights and params.json are saved in the log folder.
 
 
 ## Citation
