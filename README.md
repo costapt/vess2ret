@@ -1,6 +1,6 @@
 # Towards Adversarial Retinal Image Synthesis
 
-[Arxiv](linktoarxiv.sth)
+[Arxiv](https://arxiv.org/abs/1701.08974)
 
 We use an image-to-image translation technique based on the idea of adversarial learning to synthesize eye fundus images directly from data. We pair true eye fundus images with their respective vessel trees, by means of a vessel segmentation technique. These pairs are then used to learn a mapping from a binary vessel tree to a new retinal image.
 
