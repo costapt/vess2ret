@@ -75,7 +75,7 @@ The model can be used with any given vessel tree of the according size. You can 
 
 
 ## Citation
-If you use this code for your research, please cite our paper <a href="">Towards Adversarial Retinal Image Synthesis</a>:
+If you use this code for your research, please cite our paper [Towards Adversarial Retinal Image Synthesis](https://arxiv.org/abs/1701.08974):
 
 ```
 @article{ costa_retinal_generation_2017,
