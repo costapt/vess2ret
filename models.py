@@ -30,7 +30,7 @@ def BatchNorm(mode=2, axis=1, **kwargs):
 def g_unet(in_ch, out_ch, nf, batch_size=1, is_binary=False, name='unet'):
     """Define a U-Net.
 
-    Input has shape in_ch x 256 x 256
+    Input has shape in_ch x 512 x 512
     Parameters:
     - in_ch: the number of input channels;
     - out_ch: the number of output channels;
