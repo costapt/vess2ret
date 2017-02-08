@@ -57,6 +57,10 @@ class TwoImageIterator(Iterator):
             random.shuffle(self.filenames)
             self.filenames = self.filenames[:N]
         self.N = len(self.filenames)
+        if self.N == 0:
+            raise Exception("""Did not find any pair in the dataset. Please check that """
+                            """the names and extensions of the pairs are exactly the same. """
+                            """Searched inside folders: {0} and {1}""".format(self.a_dir, self.b_dir))
 
         self.dim_ordering = dim_ordering
         if self.dim_ordering not in ('th', 'default', 'tf'):
