@@ -10,13 +10,13 @@ We use an image-to-image translation technique based on the idea of adversarial 
 ## How it works
 - Get pairs of binary retinal vessel trees and corresponding retinal images
    The user can provide their own vessel annotations.
-   In our case , because a large enough manually annotated database was not available we applied a DNN vessel segmentation method on the [Messidor database](http://www.adcis.net/en/Download-Third-Party/Messidor.html). For details please refer to [arxiv].
+   In our case , because a large enough manually annotated database was not available we applied a DNN vessel segmentation method on the [Messidor database](http://www.adcis.net/en/Download-Third-Party/Messidor.html). For details please refer to [arxiv](https://arxiv.org/abs/1701.08974).
 
 - Train the image generator on the set of image pairs.
    The model was based in [pix2pix](https://github.com/phillipi/pix2pix). We use a Generative Adversarial Network and combine the adversarial loss with a global L1 loss. Our images have 512x512 pixel resolution. The implementation was developed in Python using Keras.
 
 
-- Test the model
+- Test the model.
    The model is now able to synthesize a new retinal image from any given vessel tree.
 
 <p align="center">
@@ -26,7 +26,7 @@ We use an image-to-image translation technique based on the idea of adversarial 
 ## Setup
 
 ## Prerequisites
-- Keras (Theano or Tensorflow backend)
+- Keras (Theano or Tensorflow backend) with the "image_dim_ordering" set to "th"
 
 ### Set up directories
 
