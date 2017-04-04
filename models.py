@@ -445,10 +445,9 @@ def g_unet(in_ch, out_ch, nf, batch_size=1, is_binary=False, name='unet'):
                            k=2, s=1)(x)
     dconv1 = BatchNorm()(dconv1)
     dconv1 = Dropout(0.5)(dconv1)
-    try:
-        x = concatenate_layers([dconv1, conv8], **merge_params)
-    except ValueError:
-        return Model(i, dconv1, name=name)
+    
+    x = concatenate_layers([dconv1, conv8], **merge_params)
+    
     x = LeakyReLU(0.2)(x)
     # nf*(8 + 8) x 2 x 2
 
