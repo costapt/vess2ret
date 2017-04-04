@@ -374,28 +374,26 @@ def g_unet(in_ch, out_ch, nf, batch_size=1, is_binary=False, name='unet'):
         'mode': 'concat',
         'concat_axis': 1
     }
-    if True:
-        if K.image_dim_ordering() == 'th':
-            print('TheanoShapedU-NET')
-            i = Input(shape=(in_ch, 512, 512))
-
-            def get_deconv_shape(samples, channels, x_dim, y_dim):
-                return samples, channels, x_dim, y_dim
-
-        elif K.image_dim_ordering() == 'tf':
-            i = Input(shape=(512, 512, in_ch))
-            print('TensorflowShapedU-NET')
-
-            def get_deconv_shape(samples, channels, x_dim, y_dim):
-                return samples, x_dim, y_dim, channels
-
-            merge_params['concat_axis'] = 3
-        else:
-            raise ValueError(
-                'Keras dimension ordering not supported: {}'.format(
-                    K.image_dim_ordering()))
-    else:
+    if K.image_dim_ordering() == 'th':
+        print('TheanoShapedU-NET')
         i = Input(shape=(in_ch, 512, 512))
+
+        def get_deconv_shape(samples, channels, x_dim, y_dim):
+            return samples, channels, x_dim, y_dim
+
+    elif K.image_dim_ordering() == 'tf':
+        i = Input(shape=(512, 512, in_ch))
+        print('TensorflowShapedU-NET')
+
+        def get_deconv_shape(samples, channels, x_dim, y_dim):
+            return samples, x_dim, y_dim, channels
+
+        merge_params['concat_axis'] = 3
+    else:
+        raise ValueError(
+            'Keras dimension ordering not supported: {}'.format(
+                K.image_dim_ordering()))
+    
     # in_ch x 512 x 512
     conv1 = Convolution(nf)(i)
     conv1 = BatchNorm()(conv1)
@@ -667,12 +665,10 @@ def pix2pix(atob, d, a_ch, b_ch, alpha=100, is_a_binary=False,
 
 if __name__ == '__main__':
     import doctest
-    # noinspection PyUnresolvedReferences
-    from pyqae.dnn import pix2pix
 
     TEST_TF = True
     if TEST_TF:
         os.environ['KERAS_BACKEND'] = 'tensorflow'
     else:
         os.environ['KERAS_BACKEND'] = 'theano'
-    doctest.testmod(pix2pix, verbose=True, optionflags=doctest.ELLIPSIS)
+    doctest.testsource('models.py', verbose=True, optionflags=doctest.ELLIPSIS)
