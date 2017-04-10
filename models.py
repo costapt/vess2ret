@@ -31,7 +31,7 @@ def concatenate_layers(inputs, concat_axis, mode='concat'):
         assert mode == 'concat', "Only concatenation is supported in this wrapper"
         return Concatenate(axis=concat_axis)(inputs)
     else:
-        return merge(inputs=inputs, concat_axis=concat_axis)
+        return merge(inputs=inputs, concat_axis=concat_axis, mode=mode)
 
 
 def Convolution(f, k=3, s=2, border_mode='same', **kwargs):
@@ -393,7 +393,7 @@ def g_unet(in_ch, out_ch, nf, batch_size=1, is_binary=False, name='unet'):
         raise ValueError(
             'Keras dimension ordering not supported: {}'.format(
                 K.image_dim_ordering()))
-    
+
     # in_ch x 512 x 512
     conv1 = Convolution(nf)(i)
     conv1 = BatchNorm()(conv1)
@@ -445,9 +445,9 @@ def g_unet(in_ch, out_ch, nf, batch_size=1, is_binary=False, name='unet'):
                            k=2, s=1)(x)
     dconv1 = BatchNorm()(dconv1)
     dconv1 = Dropout(0.5)(dconv1)
-    
+
     x = concatenate_layers([dconv1, conv8], **merge_params)
-    
+
     x = LeakyReLU(0.2)(x)
     # nf*(8 + 8) x 2 x 2
 
